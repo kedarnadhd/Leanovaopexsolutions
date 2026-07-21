@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Leanova OPEX Solutions — Enterprise AI, Engineered for Reliability</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Fraunces:ital,wght@1,500&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: '#0A1128',
+          slate: '#4A5578',
+          teal: '#00C2A8',
+          offwhite: '#F7F8FB',
+          charcoal: '#14161F',
+        },
+        fontFamily: {
+          display: ['"Space Grotesk"', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+          accent: ['Fraunces', 'serif'],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; }
+  .node-canvas { position: absolute; inset: 0; z-index: 0; opacity: 0.35; }
+  @media (prefers-reduced-motion: reduce) {
+    .node-dot, .node-line { animation: none !important; }
+  }
+  .node-dot { animation: pulse-node 6s ease-in-out infinite; }
+  .node-line { animation: drift-line 10s ease-in-out infinite; }
+  @keyframes pulse-node {
+    0%, 100% { opacity: 0.25; }
+    50% { opacity: 0.8; }
+  }
+  @keyframes drift-line {
+    0%, 100% { stroke-opacity: 0.15; }
+    50% { stroke-opacity: 0.4; }
+  }
+  .fade-up { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.in-view { opacity: 1; transform: translateY(0); }
+  :focus-visible { outline: 2px solid #00C2A8; outline-offset: 2px; }
+</style>
+</head>
+<body class="bg-offwhite text-charcoal font-body antialiased">
+
+<!-- NAV -->
+<header class="fixed top-0 inset-x-0 z-50 bg-navy/95 backdrop-blur border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
+    <a href="#" class="font-display font-semibold text-white tracking-tight text-lg">
+      Leanova <span class="text-teal">OPEX</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm text-white/80 font-medium">
+      <a href="#capabilities" class="hover:text-white transition">Capabilities</a>
+      <a href="#delivery" class="hover:text-white transition">Delivery Model</a>
+      <a href="#use-cases" class="hover:text-white transition">Use Cases</a>
+      <a href="#tech" class="hover:text-white transition">Technology</a>
+    </nav>
+    <a href="#contact" class="hidden sm:inline-flex items-center rounded-md bg-teal text-navy font-semibold text-sm px-4 py-2 hover:bg-teal/90 transition">
+      Schedule a Discovery Call
+    </a>
+    <button id="menuBtn" class="md:hidden text-white" aria-label="Open menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden bg-navy border-t border-white/10 px-6 py-4 space-y-3 text-white/85 text-sm font-medium">
+    <a href="#capabilities" class="block">Capabilities</a>
+    <a href="#delivery" class="block">Delivery Model</a>
+    <a href="#use-cases" class="block">Use Cases</a>
+    <a href="#tech" class="block">Technology</a>
+    <a href="#contact" class="block text-teal">Schedule a Discovery Call</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="relative bg-navy min-h-screen flex items-center overflow-hidden pt-16">
+  <svg class="node-canvas" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#00C2A8" stroke-width="1">
+      <line class="node-line" x1="120" y1="140" x2="340" y2="260" style="animation-delay:0s"/>
+      <line class="node-line" x1="340" y1="260" x2="600" y2="150" style="animation-delay:1s"/>
+      <line class="node-line" x1="600" y1="150" x2="860" y2="280" style="animation-delay:2s"/>
+      <line class="node-line" x1="860" y1="280" x2="1080" y2="180" style="animation-delay:0.5s"/>
+      <line class="node-line" x1="340" y1="260" x2="420" y2="480" style="animation-delay:1.5s"/>
+      <line class="node-line" x1="600" y1="150" x2="640" y2="420" style="animation-delay:2.5s"/>
+      <line class="node-line" x1="860" y1="280" x2="780" y2="520" style="animation-delay:0.8s"/>
+      <line class="node-line" x1="420" y1="480" x2="640" y2="420" style="animation-delay:1.2s"/>
+      <line class="node-line" x1="640" y1="420" x2="780" y2="520" style="animation-delay:1.8s"/>
+      <line class="node-line" x1="150" y1="600" x2="420" y2="480" style="animation-delay:2.2s"/>
+      <line class="node-line" x1="950" y1="600" x2="780" y2="520" style="animation-delay:0.3s"/>
+    </g>
+    <g fill="#00C2A8">
+      <circle class="node-dot" cx="120" cy="140" r="4" style="animation-delay:0s"/>
+      <circle class="node-dot" cx="340" cy="260" r="5" style="animation-delay:0.6s"/>
+      <circle class="node-dot" cx="600" cy="150" r="4" style="animation-delay:1.2s"/>
+      <circle class="node-dot" cx="860" cy="280" r="5" style="animation-delay:1.8s"/>
+      <circle class="node-dot" cx="1080" cy="180" r="4" style="animation-delay:0.3s"/>
+      <circle class="node-dot" cx="420" cy="480" r="4" style="animation-delay:2.1s"/>
+      <circle class="node-dot" cx="640" cy="420" r="5" style="animation-delay:0.9s"/>
+      <circle class="node-dot" cx="780" cy="520" r="4" style="animation-delay:1.5s"/>
+      <circle class="node-dot" cx="150" cy="600" r="3" style="animation-delay:2.4s"/>
+      <circle class="node-dot" cx="950" cy="600" r="3" style="animation-delay:0.4s"/>
+    </g>
+  </svg>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-6 lg:px-10 py-24 text-center">
+    <p class="font-display text-teal text-xs sm:text-sm font-semibold tracking-[0.25em] mb-6">
+      ENTERPRISE AI EXECUTION
+    </p>
+    <h1 class="font-display text-white font-semibold leading-[1.05] text-4xl sm:text-5xl lg:text-6xl tracking-tight mb-6">
+      Enterprise AI, Engineered for<br class="hidden sm:block" />
+      <span class="font-accent italic font-medium text-teal">Reliability.</span>
+    </h1>
+    <p class="max-w-2xl mx-auto text-white/70 text-base sm:text-lg leading-relaxed mb-10">
+      Leanova OPEX Solutions delivers document intelligence, multi-agent orchestration, and RAG systems built for leaders who can't afford black-box AI — with guardrails, source attribution, and native ERP integration built in from day one.
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+      <a href="#contact" class="w-full sm:w-auto inline-flex justify-center items-center rounded-md bg-teal text-navy font-semibold px-6 py-3.5 hover:bg-teal/90 transition">
+        Schedule a Technical Discovery Call
+      </a>
+      <a href="#tech" class="w-full sm:w-auto inline-flex justify-center items-center rounded-md border border-white/25 text-white font-medium px-6 py-3.5 hover:border-teal hover:text-teal transition">
+        Join Our AI Talent Network
+      </a>
+    </div>
+    <p class="text-white/40 text-xs sm:text-sm tracking-wide">
+      Built for SAP, Oracle, and Dynamics environments &middot; Guardrail-first architecture &middot; Studio-academy delivery model
+    </p>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section id="capabilities" class="bg-offwhite py-24 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-2xl mb-16 fade-up">
+      <p class="font-display text-teal text-xs font-semibold tracking-[0.25em] mb-4">CORE CAPABILITIES</p>
+      <h2 class="font-display font-semibold text-navy text-3xl sm:text-4xl tracking-tight mb-4">
+        Four Pillars. One Reliable System.
+      </h2>
+      <p class="text-slate text-base sm:text-lg leading-relaxed">
+        Every engagement is built on the same enterprise-grade foundation — not assembled from scratch each time.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Pillar A -->
+      <div class="fade-up group bg-white rounded-xl border border-slate/15 p-7 hover:border-teal hover:shadow-[0_0_0_1px_rgba(0,194,168,0.3)] transition">
+        <svg class="w-9 h-9 mb-6 text-navy group-hover:text-teal transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/>
+          <path d="M8 7.5L10.5 16M16 7.5L13.5 16M8.5 6H15.5"/>
+        </svg>
+        <h3 class="font-display font-semibold text-navy text-lg mb-3">Specialized Agents. Not One Black Box.</h3>
+        <p class="text-slate text-sm leading-relaxed">
+          Purpose-built Risk, Compliance, and Audit agents work in concert — each with its own dedicated reasoning layer — so no single generic model is left guessing at every function of your business.
+        </p>
+      </div>
+      <!-- Pillar B -->
+      <div class="fade-up group bg-white rounded-xl border border-slate/15 p-7 hover:border-teal hover:shadow-[0_0_0_1px_rgba(0,194,168,0.3)] transition">
+        <svg class="w-9 h-9 mb-6 text-navy group-hover:text-teal transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <rect x="4" y="3" width="12" height="15" rx="1"/><rect x="7" y="6" width="12" height="15" rx="1" fill="#F7F8FB"/>
+          <circle cx="17" cy="17" r="3.2"/><path d="M19.3 19.3L22 22"/>
+        </svg>
+        <h3 class="font-display font-semibold text-navy text-lg mb-3">Retrieval That Adapts to Your Documents.</h3>
+        <p class="text-slate text-sm leading-relaxed">
+          Semantic-aware chunking and hybrid retrieval built on FAISS and ChromaDB enable cross-document reasoning across contracts, tenders, SOPs, and compliance filings at enterprise scale.
+        </p>
+      </div>
+      <!-- Pillar C -->
+      <div class="fade-up group bg-white rounded-xl border border-slate/15 p-7 hover:border-teal hover:shadow-[0_0_0_1px_rgba(0,194,168,0.3)] transition">
+        <svg class="w-9 h-9 mb-6 text-navy group-hover:text-teal transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/>
+        </svg>
+        <h3 class="font-display font-semibold text-navy text-lg mb-3">Every Output, Verifiable.</h3>
+        <p class="text-slate text-sm leading-relaxed">
+          Confidence scoring, source attribution, and extraction validation are built into every workflow — so your team verifies AI decisions in seconds instead of trusting a black box.
+        </p>
+      </div>
+      <!-- Pillar D -->
+      <div class="fade-up group bg-white rounded-xl border border-slate/15 p-7 hover:border-teal hover:shadow-[0_0_0_1px_rgba(0,194,168,0.3)] transition">
+        <svg class="w-9 h-9 mb-6 text-navy group-hover:text-teal transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <circle cx="9" cy="9" r="4"/><circle cx="17" cy="17" r="4"/><path d="M12 12l3 3"/>
+        </svg>
+        <h3 class="font-display font-semibold text-navy text-lg mb-3">Built to Work Inside Your Stack.</h3>
+        <p class="text-slate text-sm leading-relaxed">
+          Native integration workflows for SAP, Oracle ERP, Microsoft Dynamics, and Tally mean no disruptive migrations and no retraining your finance team on new software.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERY MODEL -->
+<section id="delivery" class="bg-white py-24 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-2xl mb-16 fade-up">
+      <p class="font-display text-teal text-xs font-semibold tracking-[0.25em] mb-4">HOW WE DELIVER</p>
+      <h2 class="font-display font-semibold text-navy text-3xl sm:text-4xl tracking-tight mb-4">
+        The Studio-Academy Delivery Model
+      </h2>
+      <p class="text-slate text-base sm:text-lg leading-relaxed mb-6">
+        Rapid execution without sacrificing engineering rigor — because delivery capacity and technical oversight come from the same system.
+      </p>
+      <p class="text-slate text-base leading-relaxed">
+        Leanova operates two connected units: a dedicated Project Studio of senior AI engineers, and a specialized Talent Academy that trains the next generation of AI practitioners on production-grade tooling. Every engagement moves through the same three gates, without exception:
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 relative">
+      <div class="hidden md:block absolute top-8 left-[16.66%] right-[16.66%] h-px bg-slate/20"></div>
+
+      <div class="fade-up relative">
+        <div class="w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-display font-semibold mb-6 relative z-10">01</div>
+        <h3 class="font-display font-semibold text-navy text-lg mb-3">Scope &amp; Architect</h3>
+        <p class="text-slate text-sm leading-relaxed">
+          We define the exact technical problem and design the agent/RAG architecture before a single line of production code is written.
+        </p>
+      </div>
+      <div class="fade-up relative">
+        <div class="w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-display font-semibold mb-6 relative z-10">02</div>
+        <h3 class="font-display font-semibold text-navy text-lg mb-3">Build &amp; Validate</h3>
+        <p class="text-slate text-sm leading-relaxed">
+          Studio-supervised talent builds against the architecture using production-grade frameworks — every deliverable is tested against the reliability guardrails before it moves forward.
+        </p>
+      </div>
+      <div class="fade-up relative">
+        <div class="w-12 h-12 rounded-full bg-teal text-navy flex items-center justify-center font-display font-semibold mb-6 relative z-10">03</div>
+        <h3 class="font-display font-semibold text-navy text-lg mb-3">Deploy &amp; Monitor</h3>
+        <p class="text-slate text-sm leading-relaxed">
+          A senior engineer with enterprise deployment experience signs off before go-live, with confidence scoring and audit trails running in production from day one.
+        </p>
+      </div>
+    </div>
+
+    <p class="fade-up mt-14 text-navy font-display font-medium text-lg sm:text-xl max-w-3xl border-l-2 border-teal pl-6">
+      The result: the delivery speed of a large team, with the accountability of a single senior architect on every engagement.
+    </p>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section id="use-cases" class="bg-offwhite py-24 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-2xl mb-16 fade-up">
+      <p class="font-display text-teal text-xs font-semibold tracking-[0.25em] mb-4">WHERE THIS APPLIES</p>
+      <h2 class="font-display font-semibold text-navy text-3xl sm:text-4xl tracking-tight mb-4">
+        Representative Use Cases
+      </h2>
+      <p class="text-slate text-base sm:text-lg leading-relaxed">
+        Illustrative engagement patterns built on our core architecture — each adaptable to your specific document types and systems.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Use case 1 -->
+      <div class="fade-up bg-white rounded-xl border border-slate/15 p-7 flex flex-col">
+        <span class="inline-block w-fit text-[10px] font-display font-semibold tracking-widest text-teal bg-teal/10 rounded px-2 py-1 mb-5">
+          REPRESENTATIVE USE CASE
+        </span>
+        <h3 class="font-display font-semibold text-navy text-lg mb-4">Automated Tender &amp; Contract Review</h3>
+        <div class="space-y-4 text-sm">
+          <div>
+            <p class="font-semibold text-navy mb-1">Challenge</p>
+            <p class="text-slate leading-relaxed">Manual review of tenders, contracts, and compliance filings consumes hundreds of hours per quarter and introduces inconsistent extraction accuracy across reviewers.</p>
+          </div>
+          <div>
+            <p class="font-semibold text-navy mb-1">Solution</p>
+            <p class="text-slate leading-relaxed">Adaptive document-intelligence pipeline with semantic-aware chunking and confidence-scored extraction across the full document set.</p>
+          </div>
+          <div>
+            <p class="font-semibold text-navy mb-1">Outcome</p>
+            <p class="text-slate leading-relaxed">Reduced manual review hours with a fully traceable audit path for every extracted clause.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Use case 2 -->
+      <div class="fade-up bg-white rounded-xl border border-slate/15 p-7 flex flex-col">
+        <span class="inline-block w-fit text-[10px] font-display font-semibold tracking-widest text-teal bg-teal/10 rounded px-2 py-1 mb-5">
+          REPRESENTATIVE USE CASE
+        </span>
+        <h3 class="font-display font-semibold text-navy text-lg mb-4">Multi-Agent Compliance Monitoring</h3>
+        <div class="space-y-4 text-sm">
+          <div>
+            <p class="font-semibold text-navy mb-1">Challenge</p>
+            <p class="text-slate leading-relaxed">Risk, compliance, and audit functions each require different reasoning — a single generic model creates blind spots across functions.</p>
+          </div>
+          <div>
+            <p class="font-semibold text-navy mb-1">Solution</p>
+            <p class="text-slate leading-relaxed">Dedicated Risk, Compliance, and Audit agents operating on a shared knowledge base, each producing function-specific, source-attributed outputs.</p>
+          </div>
+          <div>
+            <p class="font-semibold text-navy mb-1">Outcome</p>
+            <p class="text-slate leading-relaxed">Specialized oversight across every function without three separate point solutions to maintain.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Use case 3 -->
+      <div class="fade-up bg-white rounded-xl border border-slate/15 p-7 flex flex-col">
+        <span class="inline-block w-fit text-[10px] font-display font-semibold tracking-widest text-teal bg-teal/10 rounded px-2 py-1 mb-5">
+          REPRESENTATIVE USE CASE
+        </span>
+        <h3 class="font-display font-semibold text-navy text-lg mb-4">ERP-Integrated Invoice Intelligence</h3>
+        <div class="space-y-4 text-sm">
+          <div>
+            <p class="font-semibold text-navy mb-1">Challenge</p>
+            <p class="text-slate leading-relaxed">Invoice and vendor-document processing sits disconnected from existing SAP/Oracle workflows, forcing manual re-entry and reconciliation.</p>
+          </div>
+          <div>
+            <p class="font-semibold text-navy mb-1">Solution</p>
+            <p class="text-slate leading-relaxed">Document-intelligence layer integrated directly into existing ERP workflows — no parallel system, no re-entry.</p>
+          </div>
+          <div>
+            <p class="font-semibold text-navy mb-1">Outcome</p>
+            <p class="text-slate leading-relaxed">Faster reconciliation cycles with validation checks built directly into the existing finance stack.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section id="tech" class="bg-navy py-24 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-2xl mb-16 fade-up">
+      <p class="font-display text-teal text-xs font-semibold tracking-[0.25em] mb-4">UNDER THE HOOD</p>
+      <h2 class="font-display font-semibold text-white text-3xl sm:text-4xl tracking-tight">
+        Production-Grade, Not Prototype-Grade
+      </h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-px bg-white/10 rounded-xl overflow-hidden fade-up">
+      <div class="bg-navy p-6">
+        <p class="text-teal text-[11px] font-display font-semibold tracking-widest mb-3">AGENTIC FRAMEWORKS</p>
+        <p class="text-white/80 text-sm leading-relaxed">LangChain<br/>LangGraph<br/>CrewAI</p>
+      </div>
+      <div class="bg-navy p-6">
+        <p class="text-teal text-[11px] font-display font-semibold tracking-widest mb-3">APPLICATION LAYER</p>
+        <p class="text-white/80 text-sm leading-relaxed">FastAPI<br/>Python</p>
+      </div>
+      <div class="bg-navy p-6">
+        <p class="text-teal text-[11px] font-display font-semibold tracking-widest mb-3">VECTOR &amp; RETRIEVAL</p>
+        <p class="text-white/80 text-sm leading-relaxed">FAISS<br/>ChromaDB</p>
+      </div>
+      <div class="bg-navy p-6">
+        <p class="text-teal text-[11px] font-display font-semibold tracking-widest mb-3">CLOUD &amp; MLOPS</p>
+        <p class="text-white/80 text-sm leading-relaxed">AWS · Azure · GCP<br/>Docker · CI/CD</p>
+      </div>
+      <div class="bg-navy p-6">
+        <p class="text-teal text-[11px] font-display font-semibold tracking-widest mb-3">ENTERPRISE INTEGRATION</p>
+        <p class="text-white/80 text-sm leading-relaxed">SAP · Oracle ERP<br/>Dynamics · Tally</p>
+      </div>
+    </div>
+
+    <p class="fade-up mt-10 text-white/60 text-sm sm:text-base max-w-2xl">
+      Every component here is chosen for one reason: it holds up in production, not just in a demo.
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="bg-offwhite py-24 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-5 gap-12">
+    <div class="lg:col-span-3 fade-up">
+      <p class="font-display text-teal text-xs font-semibold tracking-[0.25em] mb-4">GET STARTED</p>
+      <h2 class="font-display font-semibold text-navy text-3xl sm:text-4xl tracking-tight mb-4">
+        Schedule a Technical Discovery Call
+      </h2>
+      <p class="text-slate text-base leading-relaxed mb-10 max-w-xl">
+        A 30-minute conversation with our engineering team — not a sales pitch. Tell us about your environment and we'll tell you honestly whether we're a fit.
+      </p>
+
+      <form id="discoveryForm" class="space-y-5 max-w-xl">
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-medium text-navy mb-1.5" for="fullName">Full Name*</label>
+            <input required id="fullName" type="text" class="w-full rounded-md border border-slate/25 px-3.5 py-2.5 text-sm focus:border-teal outline-none" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-navy mb-1.5" for="email">Business Email*</label>
+            <input required id="email" type="email" class="w-full rounded-md border border-slate/25 px-3.5 py-2.5 text-sm focus:border-teal outline-none" />
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-medium text-navy mb-1.5" for="company">Company Name*</label>
+            <input required id="company" type="text" class="w-full rounded-md border border-slate/25 px-3.5 py-2.5 text-sm focus:border-teal outline-none" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-navy mb-1.5" for="title">Job Title*</label>
+            <select required id="title" class="w-full rounded-md border border-slate/25 px-3.5 py-2.5 text-sm focus:border-teal outline-none bg-white">
+              <option value="">Select one</option>
+              <option>CTO</option>
+              <option>COO</option>
+              <option>Head of Innovation</option>
+              <option>Operations Director</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-medium text-navy mb-1.5" for="size">Company Size*</label>
+            <select required id="size" class="w-full rounded-md border border-slate/25 px-3.5 py-2.5 text-sm focus:border-teal outline-none bg-white">
+              <option value="">Select one</option>
+              <option>1–50</option>
+              <option>51–200</option>
+              <option>201–1000</option>
+              <option>1000+</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-navy mb-1.5" for="timeline">Project Timeline*</label>
+            <select required id="timeline" class="w-full rounded-md border border-slate/25 px-3.5 py-2.5 text-sm focus:border-teal outline-none bg-white">
+              <option value="">Select one</option>
+              <option>Immediate</option>
+              <option>1–3 months</option>
+              <option>3–6 months</option>
+              <option>Exploring options</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-navy mb-1.5">Primary Area of Interest*</label>
+          <div class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate">
+            <label class="flex items-center gap-2"><input type="checkbox" class="accent-teal"/> Document Intelligence</label>
+            <label class="flex items-center gap-2"><input type="checkbox" class="accent-teal"/> Multi-Agent Systems</label>
+            <label class="flex items-center gap-2"><input type="checkbox" class="accent-teal"/> RAG</label>
+            <label class="flex items-center gap-2"><input type="checkbox" class="accent-teal"/> ERP Integration</label>
+            <label class="flex items-center gap-2"><input type="checkbox" class="accent-teal"/> MLOps</label>
+            <label class="flex items-center gap-2"><input type="checkbox" class="accent-teal"/> Other</label>
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-navy mb-1.5" for="challenge">Tell us about your challenge</label>
+          <textarea id="challenge" rows="3" placeholder="e.g., we process 10,000+ vendor invoices a month and need this in our SAP workflow" class="w-full rounded-md border border-slate/25 px-3.5 py-2.5 text-sm focus:border-teal outline-none"></textarea>
+        </div>
+        <button type="submit" class="w-full sm:w-auto inline-flex justify-center items-center rounded-md bg-navy text-white font-semibold px-7 py-3.5 hover:bg-navy/90 transition">
+          Request Discovery Call
+        </button>
+        <p id="formNote" class="hidden text-sm text-teal font-medium pt-2">Thank you — your request has been received. A senior engineer will follow up within one business day.</p>
+      </form>
+    </div>
+
+    <div class="lg:col-span-2 fade-up">
+      <div class="bg-navy rounded-xl p-8 sm:sticky sm:top-24">
+        <p class="text-teal text-xs font-display font-semibold tracking-[0.25em] mb-6">WHAT HAPPENS NEXT</p>
+        <ol class="space-y-6">
+          <li class="flex gap-4">
+            <span class="font-display text-white/40 font-semibold">01</span>
+            <p class="text-white/80 text-sm leading-relaxed">We review your submission within one business day.</p>
+          </li>
+          <li class="flex gap-4">
+            <span class="font-display text-white/40 font-semibold">02</span>
+            <p class="text-white/80 text-sm leading-relaxed">A senior engineer — not a salesperson — reaches out to confirm a 30-minute technical discovery call.</p>
+          </li>
+          <li class="flex gap-4">
+            <span class="font-display text-white/40 font-semibold">03</span>
+            <p class="text-white/80 text-sm leading-relaxed">You leave the call with a clear point of view on feasibility, even if we're not the right fit.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-navy border-t border-white/10 px-6 lg:px-10 py-14">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+    <div>
+      <p class="font-display font-semibold text-white text-lg mb-2">Leanova <span class="text-teal">OPEX</span></p>
+      <p class="text-white/40 text-sm">Enterprise AI, engineered for reliability.</p>
+    </div>
+    <nav class="flex flex-wrap gap-x-8 gap-y-2 text-sm text-white/60">
+      <a href="#capabilities" class="hover:text-white transition">Capabilities</a>
+      <a href="#delivery" class="hover:text-white transition">Delivery Model</a>
+      <a href="#use-cases" class="hover:text-white transition">Use Cases</a>
+      <a href="#tech" class="hover:text-white transition">Technology</a>
+    </nav>
+    <a href="#contact" class="inline-flex items-center rounded-md bg-teal text-navy font-semibold text-sm px-5 py-2.5 hover:bg-teal/90 transition">
+      Schedule a Discovery Call
+    </a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menuBtn').addEventListener('click', function () {
+    document.getElementById('mobileMenu').classList.toggle('hidden');
+  });
+
+  document.getElementById('discoveryForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    document.getElementById('formNote').classList.remove('hidden');
+    this.reset();
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add('in-view');
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+</script>
+
+</body>
+</html>
